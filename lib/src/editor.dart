@@ -233,7 +233,7 @@ class YamlEditor {
   ///   - test
   ///   - 2
   /// ```
-  void update(Iterable<Object?> path, Object? value) {
+  void update(Iterable<Object?> path, Object? value, {bool checkAlias = true}) {
     final valueNode = wrapAsYamlNode(value);
 
     if (path.isEmpty) {
@@ -249,7 +249,7 @@ class YamlEditor {
     final pathAsList = path.toList();
     final collectionPath = pathAsList.take(path.length - 1);
     final keyOrIndex = pathAsList.last;
-    final parentNode = _traverse(collectionPath, checkAlias: true);
+    final parentNode = _traverse(collectionPath, checkAlias: checkAlias);
 
     if (parentNode is YamlList) {
       if (keyOrIndex is! int) {
