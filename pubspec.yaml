@@ -13,7 +13,10 @@ dependencies:
   collection: ^1.15.0
   meta: ^1.7.0
   source_span: ^1.8.1
-  yaml: ^3.1.0
+  yaml:
+    git:
+      url: https://github.com/pocketshop-app/yaml
+      ref: feature/anchor
 
 dev_dependencies:
   coverage: # we only need format_coverage, don't care what version
